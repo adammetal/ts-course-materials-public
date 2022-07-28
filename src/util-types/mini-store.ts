@@ -1,0 +1,54 @@
+type State = {
+  count: number;
+  step: number;
+};
+
+export const store: { state: State; getState: () => State } = {
+  state: {
+    count: 0,
+    step: 1,
+  },
+
+  getState() {
+    return this.state;
+  },
+};
+
+type PayloadAction<P, T> = (p: P) => { type: T; payload: P };
+
+function createAction<Payload, Type>(type: Type): PayloadAction<Payload, Type> {
+  return (p: Payload) => ({ type, payload: p });
+}
+
+export const actions = {
+  inc: createAction<undefined, "inc">("inc"),
+  dec: createAction<undefined, "dec">("dec"),
+  set: createAction<number, "set">("set"),
+  init: createAction<undefined, "init">("init"),
+};
+
+type Action =
+  | ReturnType<typeof actions.inc>
+  | ReturnType<typeof actions.dec>
+  | ReturnType<typeof actions.set>
+  | ReturnType<typeof actions.init>;
+
+const reduce = (action: Action, state: State): State => {
+  switch (action.type) {
+    case "inc":
+      return { ...state, count: state.count + state.step };
+    case "set":
+      return { ...state, count: action.payload };
+    case "dec":
+      return { ...state, count: state.count - 1 };
+    case "init":
+      return { count: 0, step: 1 };
+    default:
+      return state;
+  }
+};
+
+export const dispatch = (action: Action): void => {
+  const nextState = reduce(action, store.state);
+  store.state = nextState;
+};

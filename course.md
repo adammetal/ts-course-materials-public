@@ -1,0 +1,4 @@
+- how transpilation works, OOP basics
+- classes, access modifiers
+- interface, decorator, generics
+- utility types (Partial<T>, Required<T>, Readonly<T>)
