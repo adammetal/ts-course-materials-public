@@ -9,9 +9,7 @@ class Company {
     this.phoneFactory = phoneFactory;
   }
 
-  createPhones(
-    n: number
-  ): Array<Phone> {
+  createPhones(n: number): Phone[] {
     return Array.from(Array(n)).map(() => this.phoneFactory.createPhone());
   }
 }
@@ -29,7 +27,7 @@ const useTablet = (t: Phone) => {
   if (t instanceof Tablet) {
     return t.netflix();
   }
-}
+};
 
 test("Create tablets", () => {
   const google = new Company(new TabletFactory("google", OS.Android));
@@ -40,5 +38,7 @@ test("Create tablets", () => {
   expect(phones[0]).instanceOf(SmartPhone);
   expect(phones[0]).instanceOf(Tablet);
   expect(phones[0].getId()).toBe("(Android) - google - (000)");
-  expect(useTablet(phones[0])).toBe("(Android) - google - (000) using the internet for watching netflix");
+  expect(useTablet(phones[0])).toBe(
+    "(Android) - google - (000) using the internet for watching netflix"
+  );
 });

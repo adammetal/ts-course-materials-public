@@ -1,4 +1,4 @@
-class Phone {
+export class Phone {
   owner: string = "";
   number: string = "";
 
@@ -9,23 +9,23 @@ class Phone {
 
   getId(): string {
     return `${this.owner} - (${this.number})`;
-  };
+  }
 
   call(number: string): string {
     return `${this.getId()} calling... ${number}`;
-  };
+  }
 
   text(number: string, message: string): string {
     return `${this.getId()} texting... ${number} with ${message}`;
-  };
+  }
 }
 
-enum OS {
+export enum OS {
   Android = "Android",
   iPhone = "iPhone",
 }
 
-class SmartPhone extends Phone {
+export class SmartPhone extends Phone {
   os: OS;
 
   constructor(owner: string, number: string, os: OS) {
@@ -35,17 +35,15 @@ class SmartPhone extends Phone {
 
   getId(): string {
     return `(${this.os}) - ${super.getId()}`;
-  };
+  }
 
   internet(): string {
     return `${this.getId()} using the internet`;
-  };
+  }
 }
 
-class Tablet extends SmartPhone {
+export class Tablet extends SmartPhone {
   netflix(): string {
     return `${this.internet()} for watching netflix`;
-  };
+  }
 }
-
-export { Phone, SmartPhone, Tablet, OS };
