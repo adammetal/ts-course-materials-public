@@ -23,22 +23,35 @@ describe("stack functions", () => {
     expect(stack.toString()).toBe("4,3,2,1");
   });
 
-  test('pop optional values', () => {
+  test("pop optional values", () => {
     const first = stack.optionPop();
     expect(isSome(first)).toBe(true);
     expect(() => getVal(first)).not.toThrowError();
 
     stack.pop();
     stack.pop();
-    
+
     const none = stack.optionPop();
     expect(isNone(none)).toBe(true);
   });
 
-  test('iterate through the stack', () => {
+  test("iterate through the stack", () => {
     const it = stack.flush();
     const arr = [...it];
     expect(arr).toStrictEqual([3, 2, 1]);
     expect(stack.size()).toBe(0);
-  })
+  });
 });
+
+describe("Stack with strings", () => {
+  test("ice cream", () => {
+    const stack: Stack<string> = new Stack();
+
+    stack.push("puncs");
+    stack.push("vanilia");
+    stack.push("eper");
+
+    expect(stack.toString()).toBe("eper,vanilia,puncs");
+  });
+});
+
