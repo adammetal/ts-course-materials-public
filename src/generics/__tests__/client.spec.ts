@@ -10,7 +10,7 @@ type Pony = {
   age: number;
 };
 
-const client = new ApiClient<Pony>("http://api.ponies.com", "/");
+const client: ApiClient<Pony> = new ApiClient("http://api.ponies.com", "/");
 
 describe("test api client with fake pony api", () => {
   test("get all ponies", async () => {

@@ -16,15 +16,21 @@ export const store: { state: State; getState: () => State } = {
 
 type PayloadAction<P, T> = (p: P) => { type: T; payload: P };
 
+type SimpleAction<T> = () => { type: T };
+
 function createAction<Payload, Type>(type: Type): PayloadAction<Payload, Type> {
   return (p: Payload) => ({ type, payload: p });
 }
 
+function createSimpleAction<Type>(type: Type): SimpleAction<Type> {
+  return () => ({ type });
+}
+
 export const actions = {
-  inc: createAction<undefined, "inc">("inc"),
-  dec: createAction<undefined, "dec">("dec"),
+  inc: createSimpleAction<"inc">("inc"),
+  dec: createSimpleAction<"dec">("dec"),
+  init: createSimpleAction<"init">("init"),
   set: createAction<number, "set">("set"),
-  init: createAction<undefined, "init">("init"),
 };
 
 type Action =
