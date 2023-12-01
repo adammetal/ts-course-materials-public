@@ -22,4 +22,17 @@ Creating javascript files
   - OOP Basic Principals
 
 
+# Task (30min-40min)
+
+## LinkedList<T> class
+
+Node<T>
+  - next element (Node)
+  - getNext()
+
+LinkedList<T>
+  - rootNote (Node)
+  - push(Node)
+  - remove(Node)
+  - get(index)
 
