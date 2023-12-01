@@ -2,7 +2,11 @@ import { option } from "../generics/option";
 import { SmartPhoneFactory, TabletFactory } from "../oop/factory";
 import { OS } from "../oop/phones";
 
-export type TString = ReturnType<() => string>;
+function foo(input: string) {
+  return input.toUpperCase();
+}
+
+export type TString = ReturnType<typeof foo>;
 // type TString = string
 
 export type TOptionalString = ReturnType<typeof option<string>>;

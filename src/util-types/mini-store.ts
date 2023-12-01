@@ -27,10 +27,10 @@ function createSimpleAction<Type>(type: Type): SimpleAction<Type> {
 }
 
 export const actions = {
-  inc: createSimpleAction<"inc">("inc"),
+  inc: createSimpleAction<"inc">("inc"), // { type: "inc" }
   dec: createSimpleAction<"dec">("dec"),
   init: createSimpleAction<"init">("init"),
-  set: createAction<number, "set">("set"),
+  set: createAction<number, "set">("set"), // { type: "set", payload: 5 }
 };
 
 type Action =

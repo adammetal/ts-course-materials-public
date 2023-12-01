@@ -1,20 +1,20 @@
-import { test, expect } from 'vitest';
-import { map, filter, reduce } from '../arrays';
+import { test, expect } from "vitest";
+import { map, filter, reduce, mapNumbers } from "../arrays";
 
-test('map', () => {
-  const arr = [1, 2, 3];
-  const result = map(arr, (item) => item * 2);
-  expect(result).toStrictEqual([2, 4, 6]);
+test("map", () => {
+  const arr = ["a", "b", "c"];
+  const result = map(arr, (item) => item.toUpperCase());
+  expect(result).toStrictEqual(["A", "B", "C"]);
 });
 
-test('filter', () => {
+test("filter", () => {
   const arr = [1, 2, 3];
   const result = filter(arr, (item) => item % 2 === 0);
   expect(result).toStrictEqual([2]);
 });
 
-test('reduce', () => {
+test("reduce", () => {
   const arr = [1, 2, 3];
   const result = reduce(arr, (acc, item) => acc + item, 0);
   expect(result).toBe(6);
-})
+});

@@ -47,11 +47,11 @@ describe("Stack with strings", () => {
   test("ice cream", () => {
     const stack: Stack<string> = new Stack();
 
-    stack.push("puncs");
+    stack.push("chocklete");
     stack.push("vanilia");
-    stack.push("eper");
+    stack.push("strawberry");
 
-    expect(stack.toString()).toBe("eper,vanilia,puncs");
+    expect(stack.toString()).toBe("strawberry,vanilia,chocklete");
   });
 });
 

@@ -18,5 +18,5 @@ class Stack {
   }
 }
 
-const s = new Stack();
+const stack = new Stack();
 

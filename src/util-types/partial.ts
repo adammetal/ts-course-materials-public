@@ -13,7 +13,7 @@ const updateState = (state: Partial<GameState>) => {
   currentState = { ...currentState, ...state };
 };
 
-updateState({ turn: 2 });
+updateState({  });
 
 // HTTP PATCH
 const patchCard = (id: string, card: Partial<MtgCard>) => {};

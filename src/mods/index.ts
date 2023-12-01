@@ -4,7 +4,7 @@ export const drawRectToTerminal = () => {
   const screen = new Screen(30);
 
   const rect = new Node();
-  rect.setX(5);
+  rect.setX(25);
   rect.setY(5);
 
   for (let i = 0; i <= 10; i++) {
